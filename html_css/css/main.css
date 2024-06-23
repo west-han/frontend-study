@@ -1,0 +1,278 @@
+* {
+    margin: 0; padding: 0;
+}
+
+@font-face {
+    font-family: '내폰트';
+    src: url('/font/NanumSquareR.woff')
+}
+
+body {
+    font-family: 내폰트;
+}
+
+.blog-content {
+    width: 600px;
+    height: 120px;
+    border: 1px solid black;
+}
+
+.user-info {
+    display: flex;
+}
+
+.profile-image > img {
+    border-radius: 50%;
+    width: 30px;
+}
+
+.profile-image {
+    margin-right: 5px;
+}
+
+.user-info .nickname {
+    font-size: 13px;
+}
+
+.user-info .time {
+    font-size: 10px;
+}
+
+.user-info {
+    margin-bottom: 5px;
+}
+
+.left {
+    width: 80%;
+}
+
+.preview {
+    height: 60%;
+}
+
+.title {
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+}
+
+.blog-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.right {
+    width: 20%;
+    height: 100%;
+}
+
+.right img {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    justify-content: center;
+}
+.navbar li {
+    display: inline-block;
+    width: 60px;
+    text-align: center;
+    background: #eee;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+.navbar li a {
+    font-size: 16px;
+}
+
+.main-background {
+    width: 100%;
+    height: 500px;
+    background-image: url('../img/shoes.jpg');
+    background-size: cover; /** 니가 알아서 사이즈 맞춰라 **/
+    background-repeat: no-repeat; /** 이미지 크기가 작아도 반복하지 말아라 **/
+    background-position: center;
+    padding: 1px;
+    text-align: center;
+    position: relative;
+}
+
+.main-background > p {
+    margin-top: 10px;
+    color: white;
+    padding: 5px;
+}
+
+.main-title {
+    color: white;
+    font-size: 40px;
+    margin-top: 200px;
+}
+
+.main-button {
+    padding: 15px;
+    font-size: 20px;
+    background: white;
+    border: none;
+    border-radius: 5px;
+    
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 150px;
+}
+
+.explain-box {
+    position: relative;
+    top: -50px;
+    margin: auto;
+    background-color: #eee;
+    width: 80%;
+    max-width: 600px;
+    height: 100px;
+    padding: 30px;
+    text-align: center;
+}
+
+.explain-box p {
+    color: #666;
+    font-size: 14px;
+    margin-top: 1.3em;
+}
+
+.form-container {
+    background-color: white;
+    box-sizing: border-box;
+    margin: 20px auto;
+    max-width: 700px;
+    width: 80%;
+    min-height: 300px;
+    border: 1px solid black;
+    padding: 30px;
+}
+
+.form-container label {
+    margin-bottom: 5px;
+}
+
+.form-container input:not([type=checkbox]) {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 5px 10px;
+    border: 1px solid #999;
+    border-radius: 3px;
+}
+
+
+
+.form-container h2 {
+    margin-bottom: 20px;
+}
+
+.form-container > form > div {
+    margin-bottom: 15px;
+}
+
+.form-container > form > div:last-child {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.name-field {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.name-field > div {
+    width: 48%
+}
+
+.form-container textarea {
+    box-sizing: border-box;
+    padding: 5px;
+    width: 100%;
+    min-height: 130px;
+}
+
+.form-background {
+    background-color: black;
+    padding: 30px;
+}
+
+.table-container {
+    box-sizing: border-box;
+    background-color: #b2ccd6;
+    width: 100%;
+    height: 400px;
+    padding: 30px 40px;
+}
+
+.table-container .table-title {
+    color: #35506f;
+    font-weight: 600;
+}
+
+.table-container table {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.table-container table th {
+    color: #a7b2c3;
+}
+
+.table-container table td {
+    text-align: center;
+}
+
+
+.navbar-item {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    align-content: center;
+    color: white;
+}
+
+.navbar-item.logo {
+    font-size: 50px;
+}
+
+.navbar-item.menu {
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    justify-content: flex-end;
+}
+
+.navbar-item.menu > div {
+    margin-right: 10px;
+}
+
+.navbar-item.menu > div:last-of-type {
+    margin-right: 20px;
+}
+
+.navbar {
+    display: flex;
+    height: 70px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: skyblue;
+}
+
+.nav-container {
+    display: flex;
+    height: 40px;
+    align-items: center;
+    padding: 5px;
+}
+
+.nav-item {
+    margin-right: 5px;
+}
