@@ -276,3 +276,23 @@ div.name-field > div {
 .nav-item {
     margin-right: 5px;
 }
+
+.explain-container>div {
+    float : left;
+    width : 25%;
+    text-align: center;
+  }
+  
+  @media screen and (max-width : 992px) {
+    .explain-container>div {
+      float : left;
+      width : 50%;
+    }
+  }
+  
+  @media screen and (max-width : 768px) {
+    .explain-container>div {
+      float : none;
+      width : 100%;
+    }
+  }
