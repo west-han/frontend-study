@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.background {
+  background-color: #2a4cb2;
+  font-size: 18px;
+  color: brown;
+}
+
+.box {
+  width: 100%;
+  font-size: 14px;
+}
+
+div.container > div p.first > span {
+  color: blue;
+}/*# sourceMappingURL=test.css.map */

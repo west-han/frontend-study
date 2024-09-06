@@ -1,0 +1,96 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+.grid-container div {
+    border: 1px solid black;
+}
+
+.grid-nav{
+    grid-column: 1 / 6;
+}
+
+.grid-sidebar {
+    grid-row: 2 / 5;
+}
+
+.grid-content {
+    grid-column: 2 / 6;
+    grid-row: 2 / 5;
+}
+
+@media screen and (min-width: 778px) {
+    .grid-container {
+        grid-template-rows: 100px 100px 300px;
+        width: 100%;
+        grid-template-columns: 1fr;
+    }
+
+    .grid-nav {
+        grid-row: 1 / 2;
+    }
+
+    .grid-sidebar {
+        grid-row: 2 / 3;
+    }
+
+    .grid-content {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+
+}
+
+.grey {
+    background-color: lightgrey;
+    height: 2000px;
+    margin-top: 500px;
+}
+
+.image {
+    float: right;
+    width: 400px;
+    position: sticky;
+    top: 100px;
+}
+
+.text {
+    float: left;
+    width: 300px;
+}
+
+.flip-outer {
+    width: 300px;
+    height: 300px;
+}
+
+.flip-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: all 1s;
+    transform-style: preserve-3d;
+}
+
+.front {
+    position: absolute;
+    width: 100%;
+    backface-visibility: hidden;
+    z-index: 1;
+}
+
+.back {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    transform: rotateY(180deg);
+    background-color: yellow;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.flip-inner:hover {
+    transform: rotateY(180deg);
+}
