@@ -8,11 +8,33 @@
         
         <link href="./css/main.css" rel="stylesheet">
 
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous">
+        </script>
     </head>
     <body>
+        <div class="black-bg">
+            <div class="white-bg">
+                <h4>로그인하세요</h4>
+                <form action="success.html">
+                    <div class="my-3">
+                      <input id="id" type="text" class="form-control">
+                     </div>
+                     <div class="my-3">
+                       <input id="password" type="password" class="form-control">
+                     </div>
+                     <button type="submit" class="btn btn-primary">전송</button>
+                     <button type="button" class="btn btn-danger" id="close">닫기</button>
+                  </form> 
+            </div>
+        </div>
+
         <nav class="navbar navbar-light bg-light">
             <div class="container-fluid">
                 <span class="navbar-brand">Navbar</span>
+                <span class="badge bg-dark ms-auto mx-3">Dark 🔄</span>
                 <button class="navbar-toggler" type="button">
                 <span class="navbar-toggler-icon"></span>
                 </button>
@@ -27,36 +49,165 @@
             <li class="list-group-item">And a fifth one</li>
         </ul> 
 
+        <button class="btn-login btn btn-primary">로그인</button>
 
-
-
-
-
-
-
-        <div class="alert-box" id="alert">
-            <p>알림창임</p>
-            <button id="close">닫기</button>
-        </div>
-        <button onclick="changeAlert('block', '아이디 입력하세요');">버튼1</button>
-        <button onclick="changeAlert('block', '비밀번호 입력하세요');">버튼2</button>
-        
-
-        
         <script>
-            
-            document.getElementById('close').addEventListener('click', function() {
-                changeAlert('none');
+            document.querySelector('.btn-login').addEventListener('click', () => {
+                document.querySelector('.black-bg').classList.add('show');
             });
-            
-            function changeAlert(display, message) {
-                document.getElementById('alert').querySelector('p').innerText = message;
-                document.getElementById('alert').style.display = display;
-            }
-            
+
+            document.getElementById('close').addEventListener('click', () => {
+                document.querySelector('.black-bg').classList.remove('show');
+            });
+        </script>
+
+        <script>
+            document.querySelector('button[type=submit]').addEventListener('click', e => {
+                if (! document.getElementById('id').value.trim()) {
+                    alert('id 미입력');
+                    e.preventDefault();
+                    return;
+                }
+
+                if (! document.getElementById('password').value.trim()) {
+                    alert('pw 미입력');
+                    e.preventDefault();
+                    return;
+                } else if (document.getElementById('password').value.trim().length < 6) {
+                    alert('비번 길게 치세요');
+                    e.preventDefault();
+                    return;
+                }
+            });
+        </script>
+
+        <script>
+            let count = 0;
+            const text = ['Dark', 'Light'];
+            document.querySelector('.bg-dark').addEventListener('click', e => {
+                count++;
+                e.currentTarget.textContent = text[count % 2] + ' 🔄';
+            });
         </script>
 
         <script src="js/bootstrap.min.js"></script>
         <script src="js/myscript.js"></script>
+
+        <script>
+            var balance = 10000;
+            var future_balance = 0;
+
+            let interest_rate = balance >= 50000 ? 0.2 : 0.15;
+
+            future_balance = balance + (balance * interest_rate);
+            future_balance = future_balance + future_balance * interest_rate;
+
+            console.log(future_balance);
+
+            var first = 360;
+            var total = first + (first * 2/3) * (1 + 2/3);
+            console.log(total);
+        </script>
+
+        <p>태조 이성계가 태어난 년도는?</p>
+        <input type="text" id="answer">
+        <button id="send-answer">제출</button>
+
+        <script>
+            let answerCount = 0;
+            const answer = '1335';
+            document.querySelector('#send-answer').addEventListener('click', e => {
+                if (document.getElementById('answer').value === answer) {
+                    alert('성공');
+                } else if (++answerCount >= 3) {
+                    alert('멍청아');
+                } else {
+                    alert(`${answerCount}번 시도함`);
+                }
+            });
+        </script>
+
+        <div class="alert alert-danger">
+            5초 이내 구매 시 사은품 증정!
+        </div>
+
+        <script>
+            // const callback = function() {
+                // $('.alert').hide();
+            // }
+
+            // setTimeout(callback, 1000);
+
+            count = 0;
+
+            let interval = setInterval(e => {
+                count++;
+
+                const alertBox = document.querySelector('.alert');
+                const num = alertBox.textContent.trim().charAt(0);
+                const message = alertBox.textContent.trim().substr(1);
+                alertBox.textContent = (num - 1) + message;
+            }, 1000)
+
+            setTimeout(() => {
+                clearInterval(interval);
+                $('.alert').hide();
+            }, 5000);
+
+            /[A-Z]+/
+        </script>
+
+        <div style="overflow: hidden;">
+            <div class="slide-container">
+                <div class="slide-box"><img src="car1.png" alt=""></div>
+                <div class="slide-box"><img src="car2.png" alt=""></div>
+                <div class="slide-box"><img src="car3.png" alt=""></div>
+            </div>
+        </div>
+
+        <button class="slide-prev">prev</button>
+        <button class="slide-1">1</button>
+        <button class="slide-2">2</button>
+        <button class="slide-3">3</button>
+        <button class="slide-next">next</button>
+
+        <script>
+            let currentSlide = 1;
+
+            $('.slide-1').on('click', () => {
+                $('.slide-container').css('transform', 'translateX(0vw)');
+                currentSlide = 1;
+            });
+            $('.slide-2').on('click', () => {
+                $('.slide-container').css('transform', 'translateX(-100vw)');
+                currentSlide = 2;
+            });
+            $('.slide-3').on('click', () => {
+                $('.slide-container').css('transform', 'translateX(-200vw)');
+                currentSlide = 3;
+            });
+            $('.slide-prev').on('click', () => {
+                let transform = getComputedStyle(document.querySelector('.slide-container')).transform;
+                currentSlide--;
+                if (!currentSlide) {
+                    currentSlide = 3;
+                }
+                let vw = (currentSlide-1) * -100;
+                console.log(currentSlide,vw);
+                $('.slide-container').css('transform', `translateX(${vw}vw)`);
+            });
+
+            $('.slide-next').on('click', () => {
+                let transform = getComputedStyle(document.querySelector('.slide-container')).transform;
+                currentSlide++;
+                if (currentSlide > 3) {
+                    currentSlide = 1;
+                }
+                let vw = (currentSlide-1) * -100;
+                console.log(currentSlide,vw);
+                $('.slide-container').css('transform', `translateX(${vw}vw)`);
+            });
+        </script>
     </body>
 </html>
+ 
