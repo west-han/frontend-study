@@ -6,3 +6,12 @@ document.getElementsByClassName('navbar-toggler')
     
     $el.classList.toggle('show');
 });
+
+document.querySelector('.black-bg').addEventListener('click', function(e) {
+    if (e.target === this) {
+        document.querySelector('.black-bg').classList.remove('show');
+        document.querySelector('.btn.btn-danger[type=button]').click();
+    } else {
+        e.stopPropagation();
+    }
+});

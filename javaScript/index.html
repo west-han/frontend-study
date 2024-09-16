@@ -153,8 +153,6 @@
                 clearInterval(interval);
                 $('.alert').hide();
             }, 5000);
-
-            /[A-Z]+/
         </script>
 
         <div style="overflow: hidden;">
@@ -170,6 +168,8 @@
         <button class="slide-2">2</button>
         <button class="slide-3">3</button>
         <button class="slide-next">next</button>
+
+        <div class="약관" style="width: 200px; height: 100px; overflow-y: scroll;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam, quo praesentium, ipsum accusantium vitae, magnam eius ipsa error mollitia dicta illo. Perferendis, quaerat ducimus? Odit debitis libero possimus omnis consequatur?</div>
 
         <script>
             let currentSlide = 1;
@@ -195,7 +195,7 @@
                 let vw = (currentSlide-1) * -100;
                 console.log(currentSlide,vw);
                 $('.slide-container').css('transform', `translateX(${vw}vw)`);
-            });
+            }); 
 
             $('.slide-next').on('click', () => {
                 let transform = getComputedStyle(document.querySelector('.slide-container')).transform;
@@ -206,6 +206,20 @@
                 let vw = (currentSlide-1) * -100;
                 console.log(currentSlide,vw);
                 $('.slide-container').css('transform', `translateX(${vw}vw)`);
+            });
+        </script>
+
+        <script>
+            window.addEventListener('scroll', e => {
+               window.scrollBy(0, 30);
+            });
+
+            $('.약관').on('scroll', e => {
+                const scrollY = document.querySelector('.약관').scrollTop + document.querySelector('.약관').clientHeight;
+                console.log(scrollY, document.querySelector('.약관').scrollHeight);
+                if (scrollY >= document.querySelector('.약관').scrollHeight) {
+                    alert('다 읽었군요')
+                }
             });
         </script>
     </body>
