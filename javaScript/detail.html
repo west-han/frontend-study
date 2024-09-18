@@ -53,25 +53,89 @@
             }
         </style>
     </head>
-    <body>          
-          <div class="container mt-5">
-            <ul class="list">
-              <li class="tab-button" data-id="0">Products</li>
-              <li class="tab-button orange" data-id="1">Information</li>
-              <li class="tab-button" data-id="2">Shipping</li>
-            </ul>
-            <div class="tab-content">
-              <p>상품설명입니다. Product</p>
-            </div>
-            <div class="tab-content show">
-              <p>스펙설명입니다. Information</p>
-            </div>
-            <div class="tab-content">
-              <p>배송정보입니다. Shipping</p>
-            </div>
-          </div> 
+    <body>
+      <div class="container mt-3">
+        <div class="card p-3">
+          <span>상품명</span>
+          <span>가격</span>
+        </div>
+      </div>
 
-          <script src="tab.js"></script>
+      <script>
+        let car = ['소나타', 50000, 'white'];
+        let car2 = {name: '소나타', price: [50000, 3000, 4000]};
+
+        $('.card>span:nth-child(1)').text(car2.name);
+        $('.card>span:nth-child(2)').text(car2.price[0]);
+      </script>
+
+      <form class="container my-5 form-group">
+        <p>상품선택</p>
+        <select class="form-select mt-2">
+          <option>모자</option>
+          <option>셔츠</option>
+          <option>바지</option>
+        </select>
+        <select class="form-select mt-2" name="size" style="display: none;">
+          <option value="s">s</option>
+          <option value="m">m</option>
+          <option value="l">l</option>
+        </select>
+      </form>
+      
+      <div id="test">
+      </div>
+
+      <script>
+        /*
+        let a = document.createElement('p');
+        a.innerHTML = '안녕';
+        document.getElementById('test').appendChild(a);
+        */
+
+        let template = '<p> 안 녕 </p>';
+        document.querySelector('#test').insertAdjacentHTML('beforeend', template);
+        $('#test').append(template);
+
+        var pants = [28, 30, 32];
+
+        document.querySelector('select').addEventListener('change', function(e) {
+          if (this.value === '셔츠') {
+            this.nextElementSibling.innerHTML = '<option>95</option><option>100</option>';
+            this.nextElementSibling.style.display = 'block';
+          } else if (this.value === '바지') {
+            let select = this.nextElementSibling;
+            select.innerHTML = '';
+
+            for (let i in pants) {
+              select.insertAdjacentHTML('beforeend', `<option>${pants[i]}</option>`);
+            }
+
+            this.nextElementSibling.style.display = 'block';
+          } else {
+            this.nextElementSibling.style.display = 'none';
+          }
+        });
+      </script>
+
+      <div class="container mt-5">
+        <ul class="list">
+          <li class="tab-button" data-id="0">Products</li>
+          <li class="tab-button orange" data-id="1">Information</li>
+          <li class="tab-button" data-id="2">Shipping</li>
+        </ul>
+        <div class="tab-content">
+          <p>상품설명입니다. Product</p>
+        </div>
+        <div class="tab-content show">
+          <p>스펙설명입니다. Information</p>
+        </div>
+        <div class="tab-content">
+          <p>배송정보입니다. Shipping</p>
+        </div>
+      </div> 
+
+      <script src="tab.js"></script>
     </body>
 </html>
  

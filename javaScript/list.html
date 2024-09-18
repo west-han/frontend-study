@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        
+        <link href="./css/main.css" rel="stylesheet">
+
+        <script
+            src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous">
+        </script>
+    </head>
+    <body>
+      <div class="container">
+        <div class="row">
+      
+            <!-- <div class="col-sm-4">
+              <img src="https://via.placeholder.com/600" class="w-100">
+              <h5>Card title</h5>
+              <p>가격 : 70000</p>
+            </div> -->
+      
+        </div>
+      </div>
+      
+      <script>
+        const displayProducts = products => {
+          for (let product of products) {
+            const row = document.querySelector('.row');
+            let template = 
+              `<div class="col-sm-4">
+                <img src="https://via.placeholder.com/600" class="w-100">
+                <h5>${product.title}</h5>
+                <p>가격 : ${product.price}</p>
+              </div>`;
+            row.insertAdjacentHTML('beforeend', template);
+        }
+      };
+
+        var products = [
+          { id : 0, price : 70000, title : 'Blossom Dress' },
+          { id : 1, price : 50000, title : 'Springfield Shirt' },
+          { id : 2, price : 60000, title : 'Black Monastery' }
+        ];
+
+        displayProducts(products);
+        
+      </script>
+
+      <div class="container">
+        <button id="show-more" class="btn btn-danger mt-0">더보기</button>
+      </div>
+
+      <script>
+        let count = 1;
+
+        document.querySelector('#show-more').addEventListener('click', (e) => {
+          if (count > 2) {
+            return;
+          }
+          
+          fetch(`https://codingapple1.github.io/js/more${count++}.json`)
+          .then(res => res.json())
+          .then(data => {
+            displayProducts(data);
+          })
+          .catch(error => console.log(error));
+        });
+
+        if (count >= 2) {
+          e.currentTarget.style['background-color'] = 'gray';
+        }
+        </script>
+
+      <script>
+        $.get('https://codingapple1.github.io/price.json').done(
+          function(data) {
+            console.log(data.price);
+          }).fail(function(data) {
+            console.log('failed: ', data);
+          });
+
+        fetch('https://codingapple1.github.io/price.json')
+          .then(res => res.json())
+          .then(data => {
+            console.log(data);
+          })
+          .catch(error => {
+            console.log(error);
+          })
+      </script>
+    </body>
+</html>
+ 
