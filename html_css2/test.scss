@@ -1,0 +1,25 @@
+@use '_reset';
+
+$메인컬러 : #2a4cb2;
+$기본사이즈 : 16px;
+
+.background {
+    background-color: $메인컬러;
+    font-size: $기본사이즈 + 2px;
+    color: reset.$메인칼라;
+}
+
+.box {
+    width: 100%;
+    font-size: $기본사이즈 - 2px;
+}
+
+div.container {
+    >div {
+        p.first {
+            >span {
+                color: blue;
+            }
+        }
+    }
+}

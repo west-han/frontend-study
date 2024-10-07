@@ -1,0 +1,56 @@
+ul {
+  list-style: none;
+}
+ul li {
+  padding: 15px;
+  width: 500px;
+  border: 1px solid #eee;
+}
+ul li.active {
+  background-color: skyblue;
+}
+ul li:hover {
+  background-color: skyblue;
+}
+
+.alert-green {
+  margin-bottom: 5px;
+  border-radius: 7px;
+  padding: 7px;
+  width: 500px;
+}
+.alert-green p {
+  font-size: 15px;
+}
+
+.alert-green {
+  background-color: #deefd7;
+}
+.alert-green p {
+  color: #3a4a33;
+}
+
+.alert-blue {
+  margin-bottom: 5px;
+  border-radius: 7px;
+  padding: 7px;
+  width: 500px;
+  background-color: rgb(217, 237, 247);
+}
+.alert-blue p {
+  color: rgb(73, 101, 111);
+}
+
+.row {
+  width: 100%;
+  display: flex;
+}
+.row .col-4 {
+  width: 33.3333333333%;
+}
+.row .col-6 {
+  width: 50%;
+}
+.row .col-2 {
+  width: 16.6666666667%;
+}/*# sourceMappingURL=assign2.css.map */

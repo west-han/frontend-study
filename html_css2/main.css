@@ -1,0 +1,28 @@
+.ani-text {
+    /* transform: rotate(30deg); */
+    /* transform: translateX(100px); */
+    text-align: center;
+}
+
+@keyframes leftToRight {
+    0% {
+        transform: translateX(0px);
+    }
+
+    25% { 
+        transform: translateX(-100px);
+    }
+
+    75% {
+        transform: translateX(100px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.ani-text:hover {
+    animation-name: leftToRight;
+    animation-duration: 1s;
+}
