@@ -157,9 +157,9 @@
 
         <div style="overflow: hidden;">
             <div class="slide-container">
-                <div class="slide-box"><img src="car1.png" alt=""></div>
-                <div class="slide-box"><img src="car2.png" alt=""></div>
-                <div class="slide-box"><img src="car3.png" alt=""></div>
+                <div class="slide-box"><img src="car1.png" draggable="false" alt=""></div>
+                <div class="slide-box"><img src="car2.png" draggable="false" alt=""></div>
+                <div class="slide-box"><img src="car3.png" draggable="false" alt=""></div>
             </div>
         </div>
 
@@ -170,6 +170,36 @@
         <button class="slide-next">next</button>
 
         <div class="약관" style="width: 200px; height: 100px; overflow-y: scroll;">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Numquam, quo praesentium, ipsum accusantium vitae, magnam eius ipsa error mollitia dicta illo. Perferendis, quaerat ducimus? Odit debitis libero possimus omnis consequatur?</div>
+
+        <script>
+            let startX = 0;
+            let isClicked = false;
+
+            document.querySelector('.slide-container').addEventListener('mousedown', function(e) {
+                startX = e.clientX;
+                isClicked = true;
+            });
+
+            document.querySelector('.slide-container').addEventListener('mousemove', function(e) {
+                if (isClicked) {
+                    this.style.transform = `translateX(${e.clientX - startX}px)`;
+                }
+            });
+
+            document.querySelector('.slide-container').addEventListener('mouseup', function(e) {
+                isClicked = false;
+                if (e.clientX - startX < -100) {
+                    this.style.transition = 'all 0.5s';
+                    document.querySelector('.slide-container').style.transform = 'translateX(-100vw)';
+                } else {
+                    this.style.transition = 'all 0.5s';
+                    document.querySelector('.slide-container').style.transform = `translateX(0vw)`;
+                }
+                setTimeout(function() {
+                    document.querySelector('.slide-container').style.transform = 'none';
+                }, 500);
+            });
+        </script>
 
         <script>
             let currentSlide = 1;
