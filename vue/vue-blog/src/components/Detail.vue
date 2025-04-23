@@ -3,6 +3,7 @@
         <h3>{{ list[$route.params.id].title }}</h3>
         <p>{{ list[$route.params.id].date }}</p>
         <p>{{ list[$route.params.id].content }}</p>
+        <router-view></router-view>
     </div>
 </template>
 <script>

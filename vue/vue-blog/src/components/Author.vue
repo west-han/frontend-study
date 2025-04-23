@@ -1,6 +1,6 @@
 <template lang="">
     <div>
-        
+        작가 소개
     </div>
 </template>
 <script>

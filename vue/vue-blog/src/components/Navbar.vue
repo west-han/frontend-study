@@ -9,7 +9,7 @@
       <ul class="navbar-nav">
         <li class="nav-item">
           <!-- <a class="nav-link active" aria-current="page" href="#">Home</a> -->
-           <router-link to="list" class="nav-link">List</router-link>
+           <router-link to="/list" class="nav-link">List</router-link>
         </li>
       </ul>
     </div>
